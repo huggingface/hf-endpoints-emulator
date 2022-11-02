@@ -4,19 +4,19 @@
 
 🤗 Inference Endpoints support all of the 🤗 Transformers and Sentence-Transformers tasks as well as custom tasks not supported by 🤗 Transformers yet like speaker diarization and diffusion.
 
-The `hf_endpoints_emulator` package provides a simple way to test your custom handlers locally before deploying them to Inference Endpoints. It is also useful for debugging your custom handlers. 
+The `hf-endpoints-emulator` package provides a simple way to test your custom handlers locally before deploying them to Inference Endpoints. It is also useful for debugging your custom handlers. 
 
-The package provides a `hf_endpoints_emulator` command line tool that can be used to run your custom handlers locally. It also provides a `hf_endpoint_emulator` Python package that can be used to run your custom handlers locally from Python.
+The package provides a `hf-endpoints-emulator` command line tool that can be used to run your custom handlers locally. It also provides a `hf_endpoint_emulator` Python package that can be used to run your custom handlers locally from Python.
 
 ## Installation
 
 ```bash
-pip install hf_endpoints_emulator
+pip install hf-endpoints-emulator
 ```
 
 ## Usage
 
-You can check the `examples/` directory for examples on how to use the `hf_endpoints_emulator` package.
+You can check the `examples/` directory for examples on how to use the `hf-endpoints-emulator` package.
 
 ### Command Line
 
