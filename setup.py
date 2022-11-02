@@ -17,8 +17,9 @@ install_requires = [
     "Pillow",
     "starlette",
     "uvicorn",
-    # "torch>=1.8.0",
-    # "tensorflow>=2.4.0"
+    "torch>=1.8.0",
+    "tensorflow>=2.4.0",
+    "typer[all]",
 ]
 
 extras = {}
@@ -43,7 +44,7 @@ extras["quality"] = [
 
 
 setup(
-    name="hf_endpoints_emulator",
+    name="hf-endpoints-emulator",
     version=VERSION,
     author="HuggingFace",
     description=".",
@@ -52,7 +53,7 @@ setup(
     packages=find_packages(where="src"),
     install_requires=install_requires,
     extras_require=extras,
-    entry_points={"console_scripts": "emulate=hf_endpoints_emulator.emulator:emulate"},
+    entry_points={"console_scripts": "hf-endpoints-emulator=hf_endpoints_emulator.cli:app"},
     python_requires=">=3.8.0",
     license="MIT",
     classifiers=[
