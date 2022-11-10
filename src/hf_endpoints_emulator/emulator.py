@@ -33,7 +33,7 @@ async def some_startup_task():
     sys.modules[module_name] = handler
     spec.loader.exec_module(handler)
     # init custom handler with model_dir
-    inference_handler = handler.EndpointHandler(_handler_path.parents[0])
+    inference_handler = handler.EndpointHandler(str(_handler_path.parents[0]))
     # logger.info(f"Loaded EndpointHandler from {str(_handler_path)} file")
 
 

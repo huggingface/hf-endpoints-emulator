@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 # We don't declare our dependency on transformers here because we build with
 # different packages for different variants
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 
 # Ubuntu packages
@@ -13,12 +13,9 @@ VERSION = "0.1.0"
 
 install_requires = [
     # transformers
-    "transformers[sklearn,sentencepiece]>=4.20.1",
     "Pillow",
     "starlette",
     "uvicorn",
-    "torch>=1.8.0",
-    "tensorflow>=2.4.0",
     "typer[all]",
 ]
 
