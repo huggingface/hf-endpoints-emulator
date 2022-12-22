@@ -9,6 +9,7 @@ from starlette.applications import Starlette
 from starlette.responses import JSONResponse, PlainTextResponse
 from starlette.routing import Route
 
+import traceback
 import typer
 import uvicorn
 
@@ -49,6 +50,7 @@ async def predict(request):
         pred = inference_handler(deserialized_body)
         return JSONResponse(pred)
     except Exception as e:
+        print(traceback.format_exc())
         return JSONResponse({"error": str(e)}, status_code=400)
 
 
