@@ -19,7 +19,6 @@ from .serializer_deserializer import decode
 logging.basicConfig(format="%(levelname)s:     %(message)s", datefmt="", level=logging.INFO)
 logger = logging.getLogger("uvicorn.access")
 
-
 async def some_startup_task():
     global inference_handler
 
@@ -28,7 +27,7 @@ async def some_startup_task():
 
     spec = importlib.util.spec_from_file_location(module_name, _handler_path)
     # add the whole directory to path for submodlues
-    sys.path.insert(0, _handler_path.parents[0])
+    sys.path.insert(0, str(_handler_path.parents[0]))
     # import custom handler
     handler = importlib.util.module_from_spec(spec)
     sys.modules[module_name] = handler
