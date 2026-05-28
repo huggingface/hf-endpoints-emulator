@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import sys
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from starlette.applications import Starlette
@@ -57,6 +58,14 @@ async def health(request):
     return PlainTextResponse("Ok")
 
 
+@asynccontextmanager
+async def lifespan(app):
+    # Starlette 1.0 removed on_startup / on_shutdown in favor of the
+    # ASGI lifespan protocol.
+    await some_startup_task()
+    yield
+
+
 app = app = Starlette(
     debug=True,
     routes=[
@@ -65,7 +74,7 @@ app = app = Starlette(
         Route("/", predict, methods=["POST"]),
         Route("/predict", predict, methods=["POST"]),
     ],
-    on_startup=[some_startup_task],
+    lifespan=lifespan,
 )
 
 
